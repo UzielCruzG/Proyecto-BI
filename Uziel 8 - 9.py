@@ -1,5 +1,7 @@
 import pandas as pd
 import hypothesis
+import warnings
+warnings.filterwarnings("ignore")
 
 path = "./data/Casos_Diarios_Estado_Nacional_Confirmados.csv"
 
@@ -14,6 +16,6 @@ def drop_data(data):
 print("\nInformacion con drop:\n",drop_data(read_data(path)))
 
 def media_estado(covid_data):
-    media_estado = covid_data.mean(axis = 0)
+    media_estado = covid_data.mean(axis = 1)
     return media_estado
 print("\nMedia por cada estado:\n",media_estado(drop_data(read_data(path))))
