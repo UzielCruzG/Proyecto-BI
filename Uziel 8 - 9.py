@@ -19,3 +19,10 @@ def media_estado(covid_data):
     media_estado = covid_data.mean(axis = 1)
     return media_estado
 print("\nMedia por cada estado:\n",media_estado(drop_data(read_data(path))))
+
+def estados_mediana_desviacion_similar(covid_data):
+    mediana_estado = covid_data.median(axis = 1)
+    desviacion_estado = covid_data.std(axis = 1)
+    print(mediana_estado)
+    print(desviacion_estado)
+print(estados_mediana_desviacion_similar((drop_data(read_data(path)))))
