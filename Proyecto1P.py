@@ -1,5 +1,3 @@
-import os
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import warnings
@@ -25,19 +23,19 @@ def transform(dataframe):
     }
     primero = pd.DataFrame(pico_maximo_nacional)
 
-    print('SEGUNDO-----------------------')
+    # print('SEGUNDO-----------------------')
     casos_acumulados = dataframe.iloc[-1:, 2:].sum(axis=1)
-    print('casos acumulados\n', casos_acumulados)
-    print('poblacion', dataframe.iloc[-1:, 1])
+    # print('casos acumulados\n', casos_acumulados)
+    # print('poblacion', dataframe.iloc[-1:, 1])
     porcentaje = (casos_acumulados * 100) / dataframe.iloc[-1:, 1]
     segundo = porcentaje
 
     # 3ero.
-    print('TERCERO-----------------------')
+    # print('TERCERO-----------------------')
     tercero = dataframe.iloc[:-1, 2:].idxmax(axis=1)
 
     # 4to.
-    print('CUARTO-----------------------')
+    # print('CUARTO-----------------------')
     total_casos = dataframe.iloc[:-1, 2:].sum(axis=1)
 
     estado_mas_casos = {
@@ -48,7 +46,7 @@ def transform(dataframe):
     cuarto = pd.DataFrame(estado_mas_casos)
 
     # 5to.
-    print('QUINTO-----------------------')
+    # print('QUINTO-----------------------')
     casos_por_estado = dataframe.iloc[:-1, 2:].sum(axis=1)
     poblacion = dataframe.iloc[:-1, 1]
     porcentaje = (casos_por_estado * 100) / poblacion
@@ -61,7 +59,7 @@ def transform(dataframe):
     quinto = pd.DataFrame(mayor_porcentaje)
 
     # 6to.
-    print('SEXTO-----------------------')
+    # print('SEXTO-----------------------')
 
     estado_menos_casos = {
         'Estado': [total_casos.idxmin()],
@@ -71,7 +69,7 @@ def transform(dataframe):
     sexto = pd.DataFrame(estado_menos_casos)
 
     # 7mo.
-    print('SEPTIMO-----------------------')
+    # print('SEPTIMO-----------------------')
     casos_por_estado = df.iloc[:-1, 2:].sum(axis=1)
     poblacion = df.iloc[:-1, 1]
     porcentaje = (casos_por_estado * 100) / poblacion
@@ -83,8 +81,7 @@ def transform(dataframe):
 
     septimo = pd.DataFrame(menor_porcentaje)
 
-    # 8vo.
-    print('OCTAVO-----------------------')
+    # print('OCTAVO-----------------------')
     media = dataframe.iloc[:-1, 2:].mean(axis=1)
     octavo = media
 
@@ -92,7 +89,7 @@ def transform(dataframe):
 
 
 def grafica_ejercicio10(dataframe):
-    print('DECIMO-----------------------')
+    # print('DECIMO-----------------------')
     dataframe.iloc[-1, 2:].plot()
     plt.show()
 
